@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKB Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <!-- Admin Login (if not logged in) -->
+    <div id="admin-login-screen" class="admin-login-screen">
+        <div class="login-box">
+            <h2>SKB <span class="accent" style="color:#FF4500;">Admin</span></h2>
+            <form id="admin-login-form">
+                <input type="email" id="admin-email" placeholder="Admin Email (admin@skb.com)" required
+                    value="admin@skb.com">
+                <input type="password" id="admin-password" placeholder="Password (admin)" required value="admin">
+                <button type="submit" class="btn btn-primary btn-full">Login to Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Layout -->
+    <div id="admin-layout" class="admin-layout" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>SKB <span class="accent">Admin</span></h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-view="dashboard"><i class="ri-dashboard-line"></i>
+                    Dashboard</a>
+                <a href="#" class="nav-link" data-view="products"><i class="ri-t-shirt-line"></i> Products</a>
+                <a href="#" class="nav-link" data-view="orders"><i class="ri-shopping-cart-2-line"></i> Orders</a>
+                <a href="#" class="nav-link" data-view="users"><i class="ri-group-line"></i> Users</a>
+                <a href="index.html" class="nav-link" style="margin-top: auto;"><i class="ri-store-2-line"></i> View
+                    Store</a>
+                <a href="#" class="nav-link text-danger" id="admin-logout"><i class="ri-logout-box-line"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1 id="page-title">Dashboard</h1>
+                <div class="admin-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=FF4500&color=fff" alt="Admin">
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Dashboard View -->
+                <div id="view-dashboard" class="view-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="ri-money-dollar-circle-line"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Revenue</h3>
+                                <p id="stat-revenue">Rs. 0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="ri-shopping-bag-3-line"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Orders</h3>
+                                <p id="stat-orders">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="ri-user-line"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Users</h3>
+                                <p id="stat-users">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-charts mt-4">
+                        <div class="card">
+                            <h3>Recent Orders</h3>
+                            <div class="table-responsive">
+                                <table class="admin-table" id="recent-orders-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products View -->
+                <div id="view-products" class="view-section">
+                    <div class="section-head">
+                        <h2>Manage Products</h2>
+                        <button class="btn btn-primary" onclick="openProductModal()"><i class="ri-add-line"></i> Add
+                            Product</button>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Stock</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders View -->
+                <div id="view-orders" class="view-section">
+                    <div class="section-head">
+                        <h2>Manage Orders</h2>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Date</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users View -->
+                <div id="view-users" class="view-section">
+                    <div class="section-head">
+                        <h2>Registered Users</h2>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="admin-modal-overlay"></div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="admin-modal" id="product-modal">
+        <div class="modal-header">
+            <h3 id="product-modal-title">Add Product</h3>
+            <button class="close-btn" onclick="closeAdminModal()"><i class="ri-close-line"></i></button>
+        </div>
+        <form id="product-form" class="modal-body">
+            <input type="hidden" id="prod-id">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" id="prod-name" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Price (Rs.)</label>
+                    <input type="number" id="prod-price" required>
+                </div>
+                <div class="form-group">
+                    <label>Stock</label>
+                    <input type="number" id="prod-stock" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select id="prod-category" required>
+                    <option value="Graphic T-Shirts">Graphic T-Shirts</option>
+                    <option value="Custom Prints">Custom Prints</option>
+                    <option value="Business Branding">Business Branding</option>
+                    <option value="Couple & Event">Couple & Event</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Image URL</label>
+                <input type="url" id="prod-image" placeholder="https://..." required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full mt-4">Save Product</button>
+        </form>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="admin-modal" id="order-modal">
+        <div class="modal-header">
+            <h3>Order Details</h3>
+            <button class="close-btn" onclick="closeAdminModal()"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="modal-body" id="order-details-content">
+            <!-- Injected via JS -->
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

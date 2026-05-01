@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKB T-Shirt Printing | Wear Your Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">SKB</span><span class="logo-dot">.</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#products-section">Products</a>
+                <a href="#" id="nav-custom-design">Custom Design</a>
+            </div>
+            <div class="nav-actions">
+                <button id="nav-login-btn" class="icon-btn"><i class="ri-user-line"></i> <span
+                        id="user-greeting">Login</span></button>
+                <button id="nav-cart-btn" class="icon-btn cart-btn">
+                    <i class="ri-shopping-bag-line"></i>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+                <button id="mobile-menu-btn" class="icon-btn mobile-only"><i class="ri-menu-line"></i></button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#products-section" class="mobile-link">Products</a>
+            <a href="#" id="mobile-custom-design" class="mobile-link">Custom Design</a>
+            <a href="#" id="mobile-login-btn" class="mobile-link">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Wear Your <span class="accent">Style</span></h1>
+            <p class="hero-subtitle">Premium custom t-shirt printing in Nepal. Express yourself with high-quality
+                fabrics and vibrant prints.</p>
+            <div class="hero-buttons">
+                <a href="#products-section" class="btn btn-primary">Shop Now</a>
+                <button id="hero-custom-btn" class="btn btn-secondary">Design Your Own</button>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=800&q=80" alt="SKB T-Shirt Mockup"
+                class="hero-image">
+            <div class="hero-badge">Top Quality</div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section id="products-section" class="products-section">
+        <div class="section-header">
+            <h2>Our Collection</h2>
+            <p>Explore our wide range of premium t-shirts</p>
+        </div>
+
+        <div class="category-filters">
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Graphic T-Shirts">Graphic T-Shirts</button>
+            <button class="filter-btn" data-filter="Custom Prints">Custom Prints</button>
+            <button class="filter-btn" data-filter="Business Branding">Business Branding</button>
+            <button class="filter-btn" data-filter="Couple & Event">Couple & Event</button>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+            <!-- Products will be injected here via JS -->
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="section-header">
+            <h2>Customer Reviews</h2>
+            <p>What our clients in Nepal are saying</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                <p>"Best custom printing service in Kathmandu! The quality is outstanding."</p>
+                <h4>- Sandesh S.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i></div>
+                <p>"Loved the couple t-shirts we ordered for our anniversary. Highly recommended!"</p>
+                <h4>- Priya M.</h4>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
+                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                <p>"Ordered 50 shirts for our corporate event. Delivered on time with perfect branding."</p>
+                <h4>- Rajesh K.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-text" style="color:white;">SKB</span><span class="logo-dot">.</span>
+                </a>
+                <p>Kathmandu, Nepal</p>
+                <div class="social-links">
+                    <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+                    <a href="#"><i class="ri-instagram-fill"></i></a>
+                    <a href="#"><i class="ri-twitter-x-line"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#products-section">Shop</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe for updates and offers.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SKB T-Shirt Printing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+
+    <!-- 1. Shopping Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-btn" id="close-cart"><i class="ri-close-line"></i></button>
+        </div>
+        <div class="cart-promo-banner">
+            🎁 Buy 2 Get 1 Free on all items!
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items injected via JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="coupon-box">
+                <input type="text" id="coupon-input" placeholder="Promo code (e.g., SKB10)">
+                <button id="apply-coupon-btn">Apply</button>
+            </div>
+            <p id="coupon-message" class="coupon-message"></p>
+            <div class="cart-summary">
+                <div class="summary-row"><span>Subtotal:</span> <span id="cart-subtotal">Rs. 0</span></div>
+                <div class="summary-row text-accent" id="discount-row" style="display: none;"><span>Discount:</span>
+                    <span id="cart-discount">- Rs. 0</span>
+                </div>
+                <div class="summary-row total"><span>Total:</span> <span id="cart-total">Rs. 0</span></div>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- 2. Product Detail Modal -->
+    <div class="modal" id="product-modal">
+        <button class="modal-close" data-close="product-modal"><i class="ri-close-line"></i></button>
+        <div class="product-detail-content" id="product-detail-content">
+            <!-- Injected via JS -->
+        </div>
+    </div>
+
+    <!-- 3. Custom Designer Modal -->
+    <div class="modal modal-lg" id="designer-modal">
+        <button class="modal-close" data-close="designer-modal"><i class="ri-close-line"></i></button>
+        <div class="modal-header">
+            <h3>Custom T-Shirt Designer</h3>
+        </div>
+        <div class="designer-layout">
+            <div class="designer-preview">
+                <div class="mockup-container" id="mockup-container">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80"
+                        alt="Blank T-Shirt" class="mockup-img">
+                    <canvas id="tshirt-canvas" width="200" height="250"></canvas>
+                </div>
+            </div>
+            <div class="designer-controls">
+                <div class="control-group">
+                    <label>Upload Image</label>
+                    <input type="file" id="designer-upload" accept="image/*" class="file-input">
+                </div>
+                <div class="control-group">
+                    <label>Add Custom Text</label>
+                    <div class="text-input-row">
+                        <input type="text" id="designer-text" placeholder="Your Text Here">
+                        <button id="designer-add-text" class="btn btn-secondary">Add</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Text Color</label>
+                    <input type="color" id="designer-color" value="#000000">
+                </div>
+                <div class="designer-actions">
+                    <button id="designer-clear" class="btn btn-outline">Clear All</button>
+                    <button id="designer-add-cart" class="btn btn-primary">Add to Cart (Rs. 2000)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Auth Modal (Fake Auth) -->
+    <div class="modal modal-sm" id="auth-modal">
+        <button class="modal-close" data-close="auth-modal"><i class="ri-close-line"></i></button>
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-target="login-form">Login</button>
+                <button class="auth-tab" data-target="register-form">Register</button>
+            </div>
+            <form id="login-form" class="auth-form active">
+                <input type="email" placeholder="Email" required id="login-email">
+                <input type="password" placeholder="Password" required id="login-password">
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+            <form id="register-form" class="auth-form">
+                <input type="text" placeholder="Full Name" required id="reg-name">
+                <input type="email" placeholder="Email" required id="reg-email">
+                <input type="password" placeholder="Password" required id="reg-password">
+                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. Checkout Modal -->
+    <div class="modal modal-lg" id="checkout-modal">
+        <button class="modal-close" data-close="checkout-modal"><i class="ri-close-line"></i></button>
+        <div class="modal-header">
+            <h3>Checkout</h3>
+        </div>
+        <div class="checkout-layout">
+            <div class="checkout-form-section">
+                <h4>Shipping Details</h4>
+                <form id="checkout-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name" required id="checkout-name">
+                        <input type="tel" placeholder="Phone Number" required id="checkout-phone">
+                    </div>
+                    <input type="text" placeholder="Delivery Address (e.g., Kathmandu, Ward 5)" required
+                        id="checkout-address">
+
+                    <h4 class="mt-4">Payment Method</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod" checked>
+                            <span class="pay-btn">Cash on Delivery</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="esewa">
+                            <span class="pay-btn eSewa">eSewa</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="khalti">
+                            <span class="pay-btn khalti">Khalti</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card">
+                            <span class="pay-btn">Card</span>
+                        </label>
+                    </div>
+
+                    <!-- Dynamic Payment Info -->
+                    <div id="payment-info" class="payment-info-box">
+                        <p>Pay with cash upon delivery.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full mt-4" id="place-order-btn">Place
+                        Order</button>
+                </form>
+            </div>
+            <div class="checkout-summary-section">
+                <h4>Order Summary</h4>
+                <div id="checkout-items-list" class="checkout-items-list">
+                    <!-- Injected via JS -->
+                </div>
+                <div class="checkout-totals">
+                    <div class="summary-row"><span>Subtotal:</span> <span id="chk-subtotal">Rs. 0</span></div>
+                    <div class="summary-row text-accent" id="chk-discount-row" style="display:none;">
+                        <span>Discount:</span> <span id="chk-discount">- Rs. 0</span>
+                    </div>
+                    <div class="summary-row"><span>Delivery:</span> <span>Rs. 100</span></div>
+                    <div class="summary-row total mt-2"><span>Total:</span> <span id="chk-total">Rs. 100</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast">Action successful!</div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
