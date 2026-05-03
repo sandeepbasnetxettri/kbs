@@ -354,13 +354,7 @@ function setupEventListeners() {
                 if (currentUser.role === 'admin') {
                     window.location.href = 'admin.html';
                 } else {
-                    if(confirm('Do you want to logout?')) {
-                        localStorage.removeItem('skb_user');
-                        currentUser = null;
-                        checkAuth();
-                        showToast('Logged out successfully');
-                        setTimeout(() => window.location.reload(), 1000); // Reload after showing toast
-                    }
+                    window.location.href = 'dashboard.html';
                 }
             } else {
                 openModal('auth-modal');
@@ -482,6 +476,7 @@ function setupEventListeners() {
             id: Date.now().toString().slice(-6),
             date: new Date().toISOString(),
             customerName: document.getElementById('checkout-name').value,
+            customerEmail: currentUser ? currentUser.email : '',
             customerPhone: document.getElementById('checkout-phone').value,
             address: document.getElementById('checkout-address').value,
             paymentMethod: document.querySelector('input[name="payment"]:checked').value,
@@ -525,6 +520,8 @@ function setupEventListeners() {
             if (user.role === 'admin') {
                 localStorage.setItem('skb_admin_user', JSON.stringify(currentUser));
                 window.location.href = 'admin.html';
+            } else {
+                window.location.href = 'dashboard.html';
             }
         } else {
             alert('Invalid credentials. Please register first.');
@@ -551,6 +548,7 @@ function setupEventListeners() {
         checkAuth();
         closeModal();
         showToast('Account created successfully!');
+        setTimeout(() => window.location.href = 'dashboard.html', 1500);
     });
 
     document.getElementById('designer-upload').addEventListener('change', (e) => {
