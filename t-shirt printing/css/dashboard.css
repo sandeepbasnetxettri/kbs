@@ -1,0 +1,262 @@
+ :root {
+     --sidebar-width: 280px;
+ }
+
+ body {
+     background-color: #f8fafc;
+     color: var(--dark);
+ }
+
+ .dashboard-layout {
+     display: flex;
+     min-height: 100vh;
+ }
+
+ /* Sidebar Styles */
+ .dashboard-sidebar {
+     width: var(--sidebar-width);
+     background: white;
+     border-right: 1px solid #e2e8f0;
+     padding: 2rem;
+     display: flex;
+     flex-direction: column;
+     position: fixed;
+     height: 100vh;
+     z-index: 100;
+ }
+
+ .sidebar-brand {
+     margin-bottom: 3rem;
+ }
+
+ .sidebar-nav {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+ }
+
+ .nav-item {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     padding: 0.75rem 1rem;
+     border-radius: 0.75rem;
+     color: #64748b;
+     text-decoration: none;
+     transition: all 0.3s ease;
+     font-weight: 500;
+ }
+
+ .nav-item i {
+     font-size: 1.25rem;
+ }
+
+ .nav-item:hover,
+ .nav-item.active {
+     background: #f1f5f9;
+     color: var(--primary);
+ }
+
+ .nav-item.active {
+     background: var(--primary);
+     color: white;
+ }
+
+ .logout-btn {
+     margin-top: auto;
+     color: var(--danger);
+ }
+
+ /* Main Content Styles */
+ .dashboard-main {
+     flex: 1;
+     margin-left: var(--sidebar-width);
+     padding: 2rem 3rem;
+ }
+
+ .dashboard-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 2rem;
+ }
+
+ .user-profile-summary {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+ }
+
+ .avatar {
+     width: 48px;
+     height: 48px;
+     border-radius: 50%;
+     background: var(--primary);
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-weight: 700;
+     font-size: 1.25rem;
+ }
+
+ /* Stats Grid */
+ .stats-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+     gap: 1.5rem;
+     margin-bottom: 2.5rem;
+ }
+
+ .stat-card {
+     background: white;
+     padding: 1.5rem;
+     border-radius: 1rem;
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+     display: flex;
+     align-items: center;
+     gap: 1.25rem;
+ }
+
+ .stat-icon {
+     width: 56px;
+     height: 56px;
+     border-radius: 0.75rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.5rem;
+ }
+
+ .stat-icon.orders {
+     background: #eff6ff;
+     color: #3b82f6;
+ }
+
+ .stat-icon.spent {
+     background: #f0fdf4;
+     color: #22c55e;
+ }
+
+ .stat-icon.designs {
+     background: #faf5ff;
+     color: #a855f7;
+ }
+
+ .stat-info h3 {
+     font-size: 0.875rem;
+     color: #64748b;
+     margin-bottom: 0.25rem;
+ }
+
+ .stat-info p {
+     font-size: 1.5rem;
+     font-weight: 700;
+     color: var(--dark);
+ }
+
+ /* Recent Orders Table */
+ .section-title {
+     font-size: 1.25rem;
+     font-weight: 700;
+     margin-bottom: 1.5rem;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+
+ .data-card {
+     background: white;
+     border-radius: 1rem;
+     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+     overflow: hidden;
+ }
+
+ .table-responsive {
+     overflow-x: auto;
+ }
+
+ .orders-table {
+     width: 100%;
+     border-collapse: collapse;
+     text-align: left;
+ }
+
+ .orders-table th {
+     padding: 1rem 1.5rem;
+     background: #f8fafc;
+     color: #64748b;
+     font-weight: 600;
+     font-size: 0.875rem;
+     border-bottom: 1px solid #e2e8f0;
+ }
+
+ .orders-table td {
+     padding: 1.25rem 1.5rem;
+     border-bottom: 1px solid #f1f5f9;
+     font-size: 0.9375rem;
+ }
+
+ .status-badge {
+     padding: 0.25rem 0.75rem;
+     border-radius: 2rem;
+     font-size: 0.75rem;
+     font-weight: 600;
+     text-transform: uppercase;
+ }
+
+ .status-pending {
+     background: #fff7ed;
+     color: #9a3412;
+ }
+
+ .status-processing {
+     background: #eff6ff;
+     color: #1e40af;
+ }
+
+ .status-shipped {
+     background: #f0fdf4;
+     color: #166534;
+ }
+
+ .status-delivered {
+     background: #f0fdf4;
+     color: #166534;
+ }
+
+ .empty-state {
+     padding: 4rem 2rem;
+     text-align: center;
+     color: #64748b;
+ }
+
+ .empty-state i {
+     font-size: 3rem;
+     margin-bottom: 1rem;
+     display: block;
+ }
+
+ /* Mobile Adjustments */
+ @media (max-width: 992px) {
+     .dashboard-sidebar {
+         transform: translateX(-100%);
+         transition: transform 0.3s ease;
+     }
+
+     .dashboard-sidebar.active {
+         transform: translateX(0);
+     }
+
+     .dashboard-main {
+         margin-left: 0;
+         padding: 1.5rem;
+     }
+
+     .mobile-header {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         margin-bottom: 1.5rem;
+     }
+ }
