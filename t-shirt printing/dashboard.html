@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | SKB T-Shirt Printing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="dashboard-sidebar">
+            <div class="sidebar-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">SKB</span><span class="logo-dot">.</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="overview"><i class="ri-dashboard-line"></i> Overview</a>
+                <a href="#" class="nav-item" data-view="orders"><i class="ri-shopping-bag-3-line"></i> My Orders</a>
+                <a href="#" class="nav-item" data-view="designs"><i class="ri-palette-line"></i> My Designs</a>
+                <a href="#" class="nav-item" data-view="profile"><i class="ri-user-settings-line"></i> Profile</a>
+                <a href="index.html" class="nav-item"><i class="ri-store-2-line"></i> Shop More</a>
+                <a href="#" class="nav-item logout-btn" id="logout-btn"><i class="ri-logout-box-line"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Mobile Header -->
+            <div class="mobile-header mobile-only">
+                <button id="sidebar-toggle" class="icon-btn"><i class="ri-menu-2-line"></i></button>
+                <span class="logo-text">SKB Dashboard</span>
+            </div>
+
+            <header class="dashboard-header">
+                <div>
+                    <h1 id="welcome-text">Welcome back, User!</h1>
+                    <p style="color: #64748b;">Here's what's happening with your orders.</p>
+                </div>
+                <div class="user-profile-summary">
+                    <div class="avatar" id="user-avatar">U</div>
+                    <div class="user-meta desktop-only">
+                        <strong id="user-name-display">User Name</strong><br>
+                        <small id="user-email-display">user@example.com</small>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Overview Section -->
+            <div id="view-overview" class="dashboard-view active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon orders"><i class="ri-shopping-bag-3-line"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Orders</h3>
+                            <p id="stat-total-orders">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon spent"><i class="ri-wallet-3-line"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Spent</h3>
+                            <p id="stat-total-spent">Rs. 0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon designs"><i class="ri-palette-line"></i></div>
+                        <div class="stat-info">
+                            <h3>Saved Designs</h3>
+                            <p id="stat-total-designs">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    Recent Orders
+                    <a href="#" style="font-size: 0.875rem; color: var(--primary);" onclick="switchView('orders')">View
+                        All</a>
+                </div>
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="orders-table" id="recent-orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-orders-body">
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="no-orders-msg" class="empty-state" style="display: none;">
+                        <i class="ri-shopping-cart-2-line"></i>
+                        <p>You haven't placed any orders yet.</p>
+                        <a href="index.html#products-section" class="btn btn-primary mt-4">Start Shopping</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="view-orders" class="dashboard-view" style="display: none;">
+                <div class="section-title">All My Orders</div>
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-orders-body">
+                                <!-- JS Injected -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Designs Section -->
+            <div id="view-designs" class="dashboard-view" style="display: none;">
+                <div class="section-title">My Custom Designs</div>
+                <div class="stats-grid" id="designs-grid">
+                    <!-- JS Injected -->
+                </div>
+                <div id="no-designs-msg" class="empty-state" style="display: none;">
+                    <i class="ri-palette-line"></i>
+                    <p>You haven't created any custom designs yet.</p>
+                    <a href="index.html" class="btn btn-primary mt-4">Create a Design</a>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="view-profile" class="dashboard-view" style="display: none;">
+                <div class="section-title">Profile Settings</div>
+                <div class="data-card p-4" style="padding: 2rem;">
+                    <form id="profile-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full
+                                    Name</label>
+                                <input type="text" id="profile-name" class="btn-outline"
+                                    style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email
+                                    Address</label>
+                                <input type="email" id="profile-email" readonly
+                                    style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; background: #f8fafc; color: #64748b;">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-4">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" id="order-detail-modal">
+        <button class="modal-close" id="close-modal"><i class="ri-close-line"></i></button>
+        <div class="modal-header">
+            <h3>Order Details</h3>
+        </div>
+        <div id="order-detail-content" class="p-4" style="padding: 1.5rem;">
+            <!-- JS Injected -->
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Action successful!</div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>
